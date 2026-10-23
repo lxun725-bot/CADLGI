@@ -1,0 +1,53 @@
+# RepViT ALGF control with fixed 32-prototype memory and CADPA disabled.
+DATA:
+  BATCH_SIZE: 64
+  CLASS_WEIGHTS_TYPE: none
+  CROPSIZE: 224
+  DATAPATH: ../split_cropped_dataset
+  FEATURE: repvit_m1
+  NAME: barley
+  NO_TEST: true
+  NUMBER_CLASSES: 6
+  NUM_WORKERS: 4
+  USE_STRONG_AUGMENTATION: true
+DBG: false
+MODEL:
+  CADLGI:
+    ALGF_VERSION: 2
+    BACKBONE_TYPE: repvit_m1_0
+    DROP_PATH_RATE: 0.0
+    HEAD_DROP: 0.2
+    LABEL_SMOOTH: 0.0
+    MAX_PROTOTYPES: 32
+    MIN_ACTIVE_RATIO: 0.0625
+    NUM_HEADS: 4
+    PRETRAINED_PATH: auto
+    USE_ALGF: true
+    USE_CADPA: false
+    USE_PRETRAINED: true
+    USE_SPATIAL_ADAPTIVE: true
+    ALGF_GATE_MODE: joint
+  MODEL_ROOT: model/pretrained
+  SAVE_CKPT: true
+  TRANSFER_TYPE: end2end
+  TYPE: cadlgi_rep
+NUM_GPUS: 1
+OUTPUT_DIR: output/repvit/algf_internal/joint
+RUN_N_TIMES: 1
+SEED: 0
+SOLVER:
+  AMP: true
+  BASE_LR: 0.0003
+  CUDNN_BENCHMARK: false
+  DBG_TRAINABLE: false
+  LABEL_SMOOTH: 0.0
+  LOG_EVERY_N: 50
+  LOSS: softmax
+  MOMENTUM: 0.9
+  OPTIMIZER: adamw
+  PATIENCE: 100
+  SCHEDULER: cosine
+  TF32: false
+  TOTAL_EPOCH: 100
+  WARMUP_EPOCH: 15
+  WEIGHT_DECAY: 0.05

@@ -1,0 +1,57 @@
+{
+  "source_root": "MALA12.3/split_cropped_dataset",
+  "files": [
+    {
+      "split": "train",
+      "n": 31999,
+      "class_counts": {
+        "KW": 3200,
+        "PP": 3200,
+        "PS": 3200,
+        "SM": 3200,
+        "SY": 3200,
+        "ZC": 15999
+      },
+      "source_file": "split_cropped_dataset/train.json",
+      "source_sha256": "5be857a841981bf04f9a4324e0c1b6d4ffbab68e22cc845618bf844c1cc68fd4"
+    },
+    {
+      "split": "val",
+      "n": 4001,
+      "class_counts": {
+        "KW": 400,
+        "PP": 400,
+        "PS": 400,
+        "SM": 400,
+        "SY": 400,
+        "ZC": 2001
+      },
+      "source_file": "split_cropped_dataset/val.json",
+      "source_sha256": "e2198f928615d233b2848dbb51adfda7987fa0ce5fcd0bb84cc27e1e03b95f62"
+    },
+    {
+      "split": "test",
+      "n": 4000,
+      "class_counts": {
+        "KW": 400,
+        "PP": 400,
+        "PS": 400,
+        "SM": 400,
+        "SY": 400,
+        "ZC": 2000
+      },
+      "source_file": "split_cropped_dataset/test.json",
+      "source_sha256": "b27acce5e7ab5c2878d672ccd097b9e5c062e6fccedba1ad0b96632f46977cb4"
+    }
+  ],
+  "class_mapping": {
+    "CY_KW": 0,
+    "CY_PP": 1,
+    "CY_PS": 2,
+    "CY_SM": 3,
+    "CY_SY": 4,
+    "CY_ZC": 5
+  },
+  "anonymization": "sample_uid = first 20 hex chars of SHA256('CADLGI-SPLIT-v1|<split>|<image_id>')",
+  "note": "Original image paths are intentionally omitted. UIDs are stable and match the prediction CSVs generated from the same split files."
+}

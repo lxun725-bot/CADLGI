@@ -1,0 +1,18 @@
+# Runtime dependencies.
+# Verified smoke environment: Python 3.12.7, torch 2.11.0+cpu, torchvision 0.26.0+cpu, timm 1.0.26.
+torch
+torchvision
+timm
+numpy
+scipy
+Pillow
+scikit-learn
+fvcore
+iopath
+pandas
+tqdm
+matplotlib
+seaborn
+tabulate
+termcolor
+PyYAML

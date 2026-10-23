@@ -1,0 +1,48 @@
+# Training configuration.
+DBG: false
+OUTPUT_DIR: output/swin/algf_only
+RUN_N_TIMES: 1
+NUM_GPUS: 1
+SEED: 0
+DATA:
+  BATCH_SIZE: 64
+  CROPSIZE: 224
+  DATAPATH: ../split_cropped_dataset
+  FEATURE: swint_imagenet_224
+  MULTILABEL: false
+  NAME: barley
+  NUMBER_CLASSES: 6
+  NO_TEST: true
+  NUM_WORKERS: 4
+  USE_STRONG_AUGMENTATION: true
+  CLASS_WEIGHTS_TYPE: none
+MODEL:
+  MODEL_ROOT: model/pretrained
+  SAVE_CKPT: true
+  TRANSFER_TYPE: end2end
+  TYPE: cadlgi_swin
+  CADLGI:
+    NUM_HEADS: 4
+    USE_ALGF: true
+    ALGF_VERSION: 2
+    USE_SPATIAL_ADAPTIVE: true
+    USE_CADPA: false
+    MAX_PROTOTYPES: 32
+    MIN_ACTIVE_RATIO: 0.0625
+    LABEL_SMOOTH: 0.0
+    HEAD_DROP: 0.2
+SOLVER:
+  BASE_LR: 0.0003
+  TOTAL_EPOCH: 100
+  WARMUP_EPOCH: 15
+  WEIGHT_DECAY: 0.05
+  LOSS: softmax
+  LABEL_SMOOTH: 0.0
+  OPTIMIZER: adamw
+  MOMENTUM: 0.9
+  SCHEDULER: cosine
+  PATIENCE: 100
+  LOG_EVERY_N: 100
+  AMP: true
+  TF32: false
+  CUDNN_BENCHMARK: false

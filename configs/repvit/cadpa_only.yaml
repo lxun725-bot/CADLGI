@@ -1,0 +1,52 @@
+# Training configuration.
+DBG: false
+OUTPUT_DIR: output/repvit/cadpa_only
+RUN_N_TIMES: 1
+NUM_GPUS: 1
+DATA:
+  NAME: barley
+  DATAPATH: ../split_cropped_dataset
+  FEATURE: repvit_m1
+  NUMBER_CLASSES: 6
+  BATCH_SIZE: 64
+  NUM_WORKERS: 4
+  CROPSIZE: 224
+  NO_TEST: true
+  CLASS_WEIGHTS_TYPE: none
+  USE_STRONG_AUGMENTATION: true
+MODEL:
+  TYPE: cadlgi_rep
+  TRANSFER_TYPE: end2end
+  MODEL_ROOT: model/pretrained
+  SAVE_CKPT: true
+  CADLGI:
+    BACKBONE_TYPE: repvit_m1_0
+    NUM_HEADS: 4
+    USE_CADPA: true
+    MAX_PROTOTYPES: 32
+    MIN_ACTIVE_RATIO: 0.0625
+    USE_ALGF: false
+    ALGF_VERSION: 2
+    USE_SPATIAL_ADAPTIVE: true
+    DROP_PATH_RATE: 0.0
+    LABEL_SMOOTH: 0.0
+    HEAD_DROP: 0.2
+    PRETRAINED_PATH: auto
+    USE_PRETRAINED: true
+SOLVER:
+  LOSS: softmax
+  LABEL_SMOOTH: 0.0
+  OPTIMIZER: adamw
+  BASE_LR: 0.0003
+  WEIGHT_DECAY: 0.05
+  MOMENTUM: 0.9
+  WARMUP_EPOCH: 15
+  TOTAL_EPOCH: 100
+  SCHEDULER: cosine
+  PATIENCE: 100
+  LOG_EVERY_N: 50
+  DBG_TRAINABLE: false
+  AMP: true
+  TF32: false
+  CUDNN_BENCHMARK: false
+SEED: 0

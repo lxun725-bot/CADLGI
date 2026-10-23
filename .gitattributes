@@ -1,0 +1,8 @@
+* text=auto
+*.py text eol=lf
+*.yaml text eol=lf
+*.md text eol=lf
+*.txt text eol=lf
+LICENSE text eol=lf
+# Preserve training and evaluation CSV files without line-ending conversion.
+*.csv -text whitespace=cr-at-eol
