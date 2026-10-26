@@ -61,7 +61,7 @@ The CSV files contain results recorded during model training and evaluation. Tra
 - `result/CADLGI-Rep/ALGF-internal-ablation/`: histories and predictions for static, concatenation, sample, and spatial fusion controls.
 - `result/comparison/`: 100-epoch histories for 14 comparison models.
 
-The dataset loader consumes path-based JSON indices, not the anonymized CSVs directly. Running training or inference requires access to the images and compatible JSON indices. The CSV files retain the learning-rate records of their training runs. The YAML configurations specify a base learning rate of `3e-4`.
+The dataset loader consumes path-based JSON indices, not the anonymized CSVs directly. Running training or inference requires access to the images and compatible JSON indices.
 
 ## RepViT ALGF internal ablations
 
